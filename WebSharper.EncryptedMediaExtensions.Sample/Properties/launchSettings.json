@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "WebSharper.EncryptedMediaExtensions.Sample": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:51591;http://localhost:51592"
+    }
+  }
+}
