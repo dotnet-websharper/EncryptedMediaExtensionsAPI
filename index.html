@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Encrypted Media Extensions API Sample</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="Content/WebSharper.EncryptedMediaExtensions.Sample.css" />
+    <style>
+        /* Don't show the not-yet-loaded templates */
+        [ws-template], [ws-children-template] { display: none; }
+    </style>
+    <script type="module" src="Content/WebSharper.EncryptedMediaExtensions.Sample.head.js"></script>
+</head>
+<body>
+    <h1>Encrypted Media Extensions API</h1>
+    <div id="main" ws-children-template="Main">
+        <video id="video" controls width="640">
+            <source src="https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears.mpd" type="video/mp4">
+        </video>
+        <br />
+        <button ws-onclick="SetupDRM">Check DRM Support</button>
+        <br />
+        <p ws-replace="Status"></p>
+    </div>
+    <script type="module" src="Content/WebSharper.EncryptedMediaExtensions.Sample.min.js"></script>
+</body>
+</html>
