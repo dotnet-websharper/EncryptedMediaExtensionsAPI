@@ -23,20 +23,20 @@ function statusMessage(){
 function setupDRM(){
   const _1=null;
   return new Promise((_2) => {
-    const navigator=globalThis.navigator;
-    let _3=(globalThis.document.getElementById("status"),new Promise((_4) => {
+    _2((globalThis.document.getElementById("status"),new Promise((_3) => {
       let r;
       let r_1;
-      _4(navigator.requestMediaKeySystemAccess("com.widevine.alpha", [(r={},r.initDataTypes=["cenc"],r.videoCapabilities=[(r_1={},r_1.contentType="video/mp4",r_1)],r)]).then((d) => {
+      const drmConfig=(r={},r.initDataTypes=["cenc"],r.videoCapabilities=[(r_1={},r_1.contentType="video/mp4",r_1)],r);
+      let _4=globalThis.navigator.requestMediaKeySystemAccess("com.widevine.alpha", [drmConfig]).then((d) => {
         statusMessage().Set("\u2705 DRM supported: "+String(d.keySystem));
         return Promise.resolve(null);
-      }));
+      });
+      _3(_4);
     })["catch"]((d) => {
       const a=unwrapExn(d);
       statusMessage().Set("\u274c DRM not supported: "+String(a.message));
       return Promise.resolve(null);
-    }));
-    _2(_3);
+    })));
   });
 }
 function FailWith(msg){
