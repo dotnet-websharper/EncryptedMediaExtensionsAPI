@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "WebSharper.EncryptedMediaExtensions", "WebSharper.EncryptedMediaExtensions\WebSharper.EncryptedMediaExtensions.fsproj", "{FCF9540D-EFE7-4F1D-BE7B-DE6C68777E09}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "WebSharper.EncryptedMediaExtensions.Sample", "WebSharper.EncryptedMediaExtensions.Sample\WebSharper.EncryptedMediaExtensions.Sample.fsproj", "{437F08E7-877A-4DA1-9BAD-7618EC42AE52}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "WebSharper.EncryptedMediaExtensions.Extensions", "WebSharper.EncryptedMediaExtensions.Extensions\WebSharper.EncryptedMediaExtensions.Extensions.fsproj", "{67148804-CEA0-47A6-B5F9-C9E3C8030BA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{437F08E7-877A-4DA1-9BAD-7618EC42AE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{437F08E7-877A-4DA1-9BAD-7618EC42AE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{437F08E7-877A-4DA1-9BAD-7618EC42AE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67148804-CEA0-47A6-B5F9-C9E3C8030BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67148804-CEA0-47A6-B5F9-C9E3C8030BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67148804-CEA0-47A6-B5F9-C9E3C8030BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67148804-CEA0-47A6-B5F9-C9E3C8030BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

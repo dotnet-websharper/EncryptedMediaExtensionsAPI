@@ -17,17 +17,15 @@ module Client =
     
     let setupDRM () =
         promise {
-            let navigator = As<Navigator>(JS.Window.Navigator)
             let status = JS.Document.GetElementById("status")
 
             try
-
                 let drmConfig = MediaKeySystemConfiguration(
                     InitDataTypes = [|"cenc"|],
                     VideoCapabilities = [|SupportCapabilities(ContentType = "video/mp4")|]
                 )
 
-                let! access = navigator.RequestMediaKeySystemAccess("com.widevine.alpha", [|drmConfig|])
+                let! access = JS.Window.Navigator.RequestMediaKeySystemAccess("com.widevine.alpha", [|drmConfig|])
 
                 statusMessage.Value <- $"✅ DRM supported: {access.KeySystem}"
             with ex ->

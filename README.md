@@ -77,7 +77,6 @@ module Client =
     // Function to check if DRM (Digital Rights Management) is supported
     let setupDRM () =
         promise {
-            let navigator = As<Navigator>(JS.Window.Navigator)
             let status = JS.Document.GetElementById("status")
 
             try
@@ -88,7 +87,7 @@ module Client =
                 )
 
                 // Request DRM support access from the browser
-                let! access = navigator.RequestMediaKeySystemAccess("com.widevine.alpha", [|drmConfig|])
+                let! access = JS.Window.Navigator.RequestMediaKeySystemAccess("com.widevine.alpha", [|drmConfig|])
 
                 // If successful, update the UI status
                 statusMessage.Value <- $"✅ DRM supported: {access.KeySystem}"

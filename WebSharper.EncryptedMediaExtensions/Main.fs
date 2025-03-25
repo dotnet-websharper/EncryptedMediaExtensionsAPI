@@ -119,18 +119,6 @@ module Definition =
             "getConfiguration" => T<unit> ^-> T<obj> 
         ]
 
-    let HTMLMediaElement =
-        Class "HTMLMediaElement"
-        |+> Instance [
-            "mediaKeys" =? MediaKeys 
-            "setMediaKeys" => MediaKeys?mediaKeys ^-> T<Promise<_>>[T<unit>] 
-
-            "onencrypted" =@ T<unit> ^-> T<unit>
-            |> ObsoleteWithMessage "Use OnEncrypted instead"
-            "onencrypted" =@ MediaEncryptedEvent ^-> T<unit> 
-            |> WithSourceName "OnEncrypted "
-        ]
-
     let SupportCapabilities = 
         Pattern.Config "SupportCapabilities" {
             Required = []
@@ -155,13 +143,6 @@ module Definition =
             ]
         }
 
-    let Navigator =
-        Class "Navigator"
-        |+> Instance [
-            "requestMediaKeySystemAccess" =>
-                (T<string>?keySystem * (!|MediaKeySystemConfiguration)?supportedConfigurations) ^-> T<Promise<_>>[MediaKeySystemAccess] 
-        ]
-
     let Assembly =
         Assembly [
             Namespace "WebSharper.EncryptedMediaExtensions" [
@@ -170,8 +151,6 @@ module Definition =
                 MediaKeys
                 MediaKeySession
                 MediaKeySystemAccess
-                HTMLMediaElement
-                Navigator
                 MediaKeySystemConfiguration
                 SupportCapabilities
                 MediaKeysPolicy
