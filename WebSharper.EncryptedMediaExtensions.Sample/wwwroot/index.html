@@ -4,24 +4,103 @@
     <title>Encrypted Media Extensions API Sample</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="Content/WebSharper.EncryptedMediaExtensions.Sample.css" />
     <style>
         /* Don't show the not-yet-loaded templates */
         [ws-template], [ws-children-template] { display: none; }
+
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --fg: #1f2328;
+            --muted: #57606a;
+            --border: #d0d7de;
+            --card: #f6f8fa;
+            --ok: #1a7f37;
+            --warn: #9a6700;
+            --error: #cf222e;
+            --link: #0969da;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --fg: #e6edf3;
+                --muted: #8b949e;
+                --border: #30363d;
+                --card: #161b22;
+                --ok: #3fb950;
+                --warn: #d29922;
+                --error: #f85149;
+                --link: #4493f8;
+            }
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.55;
+        }
+        main {
+            max-width: 720px;
+            margin: 3rem auto;
+            padding: 0 1.25rem;
+        }
+        h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+        .subtitle { margin: 0 0 1.5rem; color: var(--muted); }
+        .card {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+        }
+        .status { font-weight: 600; margin: 0 0 .75rem; }
+        dl { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; margin: 0; }
+        dt { font-weight: 600; }
+        dd { margin: 0; color: var(--muted); }
+        button {
+            font: inherit;
+            padding: .55rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--fg);
+            cursor: pointer;
+        }
+        button:hover { border-color: var(--muted); }
+        .note { font-size: .875rem; color: var(--muted); }
+        a { color: var(--link); }
+        a:hover { color: var(--muted); }
     </style>
-    <script type="module" src="Content/WebSharper.EncryptedMediaExtensions.Sample.head.js"></script>
 </head>
 <body>
-    <h1>Encrypted Media Extensions API</h1>
-    <div id="main" ws-children-template="Main">
-        <video id="video" controls width="640">
-            <source src="https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears.mpd" type="video/mp4">
-        </video>
-        <br />
-        <button ws-onclick="SetupDRM">Check DRM Support</button>
-        <br />
-        <p ws-replace="Status"></p>
-    </div>
+    <main>
+        <div id="main" ws-children-template="Main">
+            <h1>Encrypted Media Extensions API</h1>
+            <p class="subtitle">Detect whether this browser exposes the EME API and a DRM key system. Built with <a href="https://websharper.com">WebSharper</a>.</p>
+
+            <div class="card">
+                <p class="status"><span ws-replace="Status">Not checked yet.</span></p>
+                <dl>
+                    <dt>Secure context</dt>
+                    <dd><span ws-replace="SecureContext">unknown</span></dd>
+                    <dt>EME API</dt>
+                    <dd><span ws-replace="EmeApi">unknown</span></dd>
+                    <dt>Key system</dt>
+                    <dd><span ws-replace="KeySystem">unknown</span></dd>
+                </dl>
+            </div>
+
+            <button ws-onclick="Check">Check DRM support</button>
+
+            <p class="note">
+                EME requires a <strong>secure context</strong> (HTTPS or localhost). Actual DRM
+                playback needs encrypted media and a license server, so this sample only performs
+                support detection.
+            </p>
+        </div>
+    </main>
+    <script type="text/javascript" src="Content/WebSharper.EncryptedMediaExtensions.Sample.head.js"></script>
     <script type="module" src="Content/WebSharper.EncryptedMediaExtensions.Sample.min.js"></script>
 </body>
 </html>

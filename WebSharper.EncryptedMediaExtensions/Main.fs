@@ -78,6 +78,8 @@ module Definition =
             "keyStatuses" =? MediaKeyStatusMap 
 
             "generateRequest" => T<unit> ^-> T<Promise<_>>[T<unit>] 
+            |> ObsoleteWithMessage "Use GenerateRequest(initDataType, initData) instead"
+            "generateRequest" => T<string>?initDataType * BufferData?initData ^-> T<Promise<_>>[T<unit>] 
             "load" => T<string>?sessionId ^-> T<Promise<_>>[T<bool>] 
             "update" => BufferData?response ^-> T<Promise<_>>[T<unit>] 
             "close" => T<unit> ^-> T<Promise<_>>[T<unit>] 
@@ -110,15 +112,6 @@ module Definition =
             "getStatusForPolicy" => !?MediaKeysPolicy?policy ^-> T<Promise<_>>[T<string>] 
         ]
 
-    let MediaKeySystemAccess =
-        Class "MediaKeySystemAccess"
-        |+> Instance [
-            "keySystem" =? T<string> 
-
-            "createMediaKeys" => T<unit> ^-> T<Promise<_>>[T<obj>] 
-            "getConfiguration" => T<unit> ^-> T<obj> 
-        ]
-
     let SupportCapabilities = 
         Pattern.Config "SupportCapabilities" {
             Required = []
@@ -142,6 +135,15 @@ module Definition =
                 "sessionTypes", !|T<string> 
             ]
         }
+
+    let MediaKeySystemAccess =
+        Class "MediaKeySystemAccess"
+        |+> Instance [
+            "keySystem" =? T<string> 
+
+            "createMediaKeys" => T<unit> ^-> T<Promise<_>>[MediaKeys] 
+            "getConfiguration" => T<unit> ^-> MediaKeySystemConfiguration 
+        ]
 
     let Assembly =
         Assembly [
