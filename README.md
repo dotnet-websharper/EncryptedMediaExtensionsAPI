@@ -17,6 +17,12 @@ Both binding assemblies ship in the single `WebSharper.EncryptedMediaExtensions`
 
 ## Live demos
 
+**Try it live:** [Open the sample in your browser](https://dotnet-websharper.github.io/EncryptedMediaExtensionsAPI/)
+
+![Encrypted Media Extensions API sample](docs/sample.png)
+
+The sample doubles as the binding's [test case](#run-the-sample): it detects EME support, calls `requestMediaKeySystemAccess`, and reports the negotiated key system.
+
 - **Binding sample (this repo):** https://dotnet-websharper.github.io/EncryptedMediaExtensionsAPI/
 - **Source repository:** https://github.com/dotnet-websharper/EncryptedMediaExtensionsAPI
 - **WebSharper bindings:** https://websharper.com/bindings
