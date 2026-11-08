@@ -15,8 +15,10 @@ tags
     Web JavaScript F# C#
 files
     ../WebSharper.EncryptedMediaExtensions.Extensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.Extensions.dll ==> lib/netstandard2.0
+    ../WebSharper.EncryptedMediaExtensions.Extensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.Extensions.websharper ==> lib/netstandard2.0
     ../WebSharper.EncryptedMediaExtensions.Extensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.Extensions.xml ==> lib/netstandard2.0
     ../WebSharper.EncryptedMediaExtensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.dll ==> lib/netstandard2.0
+    ../WebSharper.EncryptedMediaExtensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.websharper ==> lib/netstandard2.0
     ../WebSharper.EncryptedMediaExtensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.xml ==> lib/netstandard2.0
 dependencies
         WebSharper ~> LOCKEDVERSION:[3]
