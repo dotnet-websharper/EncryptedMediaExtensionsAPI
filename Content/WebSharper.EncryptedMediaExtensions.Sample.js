@@ -40,18 +40,18 @@ function checkDrm(){
     _1(new Promise((_2) => {
       let r, r_1;
       const config=(r={},r.initDataTypes=["cenc"],r.videoCapabilities=[(r_1={},r_1.contentType="video/mp4",r_1)],r);
-      let _3=globalThis.navigator.requestMediaKeySystemAccess("com.widevine.alpha", [config]).then((d) => {
-        keySystem().Set(d.keySystem);
+      let _3=globalThis.navigator.requestMediaKeySystemAccess("com.widevine.alpha", [config]).then((a) => {
+        keySystem().Set(a.keySystem);
         emeApi().Set("yes");
-        return d.createMediaKeys().then(() => {
-          d.getConfiguration();
+        return a.createMediaKeys().then(() => {
+          a.getConfiguration();
           status().Set("\u2705 Widevine is available and MediaKeys were created.");
           return Promise.resolve(null);
         });
       });
       _2(_3);
-    })["catch"]((d) => {
-      const message=unwrapExn(d).message;
+    })["catch"]((a) => {
+      const message=unwrapExn(a).message;
       return emeApi().Get()=="yes"?(status().Set("\u274c Widevine is available, but MediaKeys could not be created: "+message),Promise.resolve(null)):message.indexOf("is not a function")!=-1?(emeApi().Set("no"),keySystem().Set("\u2014"),status().Set("\u26a0\ufe0f The Encrypted Media Extensions API is not available in this browser."),Promise.resolve(null)):(emeApi().Set("yes"),keySystem().Set("com.widevine.alpha (unavailable)"),status().Set("\u274c Widevine is not available: "+message),Promise.resolve(null));
     }));
   });
@@ -3001,7 +3001,7 @@ class Event extends TemplateHole {
 }
 function Handler(name, callback){
   return Attr.A3((el) => {
-    el.addEventListener(name, (d) =>(callback(el))(d), false);
+    el.addEventListener(name, (o) =>(callback(el))(o), false);
   });
 }
 function OnAfterRender(callback){
@@ -3038,7 +3038,7 @@ function DynamicCustom(set_1, view){
 class Attr {
   static HandlerImpl(event, q){
     return Attr.A3((el) => {
-      el.addEventListener(event, (d) =>(q(el))(d), false);
+      el.addEventListener(event, (o) =>(q(el))(o), false);
     });
   }
   static Concat(xs){
