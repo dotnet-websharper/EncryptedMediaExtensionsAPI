@@ -1,0 +1,22 @@
+type file
+id WebSharper.EncryptedMediaExtensions
+authors
+    IntelliFactory
+owners
+    IntelliFactory
+repositoryType git
+repositoryUrl https://github.com/dotnet-websharper/EncryptedMediaExtensionsAPI/
+licenseUrl https://github.com/dotnet-websharper/EncryptedMediaExtensionsAPI/blob/main/LICENSE.md
+iconUrl https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png
+projectUrl https://github.com/dotnet-websharper/EncryptedMediaExtensionsAPI
+description
+    WebSharper bindings for EncryptedMediaExtensions
+tags
+    Web JavaScript F# C#
+files
+    ../WebSharper.EncryptedMediaExtensions.Extensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.Extensions.dll ==> lib/netstandard2.0
+    ../WebSharper.EncryptedMediaExtensions.Extensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.Extensions.xml ==> lib/netstandard2.0
+    ../WebSharper.EncryptedMediaExtensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.dll ==> lib/netstandard2.0
+    ../WebSharper.EncryptedMediaExtensions/bin/Release/netstandard2.0/WebSharper.EncryptedMediaExtensions.xml ==> lib/netstandard2.0
+dependencies
+        WebSharper ~> LOCKEDVERSION:[3]
